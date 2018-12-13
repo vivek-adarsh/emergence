@@ -1,27 +1,24 @@
 import React from 'react'
 import Layout from '../components/layout'
-import L from 'leaflet';
+import { Map, Marker, Popup, TileLayer } from 'react-leaflet'
 
+import "../components/leaflet.css"
+
+const position = [34.414079, -119.876107]
 
 class MapPage extends React.Component {
-  componentDidMount() {
-    // create map
-    this.map = L.map('map', {
-      center: [49.8419, 24.0315],
-      zoom: 16,
-      layers: [
-        L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
-          attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
-        }),
-      ]
-    });
-  }
+
 
   render() {
     return <Layout title={"Map"}>
-        <div id="map" />
-      </Layout>
+      <Map center={position} zoom={16} style={{height:"500px", border:"1px solid #000000"}}>
+        <TileLayer
+          url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+          attribution="&copy; <a href=&quot;http://osm.org/copyright&quot;>OpenStreetMap</a> contributors"
+        />
 
+      </Map>
+    </Layout>
   }
 }
 
