@@ -5,6 +5,7 @@ credentials.json
 token.json
 node_modules
 yarn-error.log
+npm-debug.log
 
 # Build directory
 /public
