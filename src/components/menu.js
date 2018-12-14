@@ -2,16 +2,16 @@ import React from 'react';
 import {Link} from 'gatsby'
 import {List, ListItem, ListItemIcon, ListSubheader, ListItemText} from '@material-ui/core';
 import DashboardIcon from '@material-ui/icons/Dashboard';
-import ConversationIcon from '@material-ui/icons/QuestionAnswer'
+import FeedIcon from '@material-ui/icons/QuestionAnswer'
+import MapIcon from '@material-ui/icons/Map'
+
 import ProfileIcon from '@material-ui/icons/Person';
 import ComposeIcon from '@material-ui/icons/Edit';
 import Divider from '@material-ui/core/Divider/Divider'
-
-import MapIcon from '@material-ui/icons/Map'
+import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 
 export default (props) => (
   <>
-    <Divider />
     <List>
 
       <ListItem button component={Link} to={"/"}>
@@ -29,7 +29,7 @@ export default (props) => (
       </ListItem>
       <ListItem button component={Link} to={"feed"}>
         <ListItemIcon>
-          <ConversationIcon />
+          <FeedIcon />
         </ListItemIcon>
         <ListItemText primary="Feed" />
       </ListItem>
