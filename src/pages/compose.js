@@ -7,19 +7,20 @@ import { withStyles } from '@material-ui/core/styles';
 import TextField from '@material-ui/core/TextField'
 import Button from '@material-ui/core/Button';
 import PostIcon from '@material-ui/icons/Send';
+import MapIcon from '@material-ui/icons/EditLocation';
+import GpsIcon from '@material-ui/icons/GpsFixed';
+import GpsNoIcon from '@material-ui/icons/GpsNotFixed';
 import CameraIcon from '@material-ui/icons/PhotoCamera'
-import CloseIcon from '@material-ui/icons/Close'
-
-import Webcam from "react-webcam";
 import FileIcon from '@material-ui/icons/Image'
 import IconButton from '@material-ui/core/IconButton'
-import Fab from '@material-ui/core/Fab/Fab'
+import Grid from '@material-ui/core/Grid';
 
 const styles = theme => ({
 
   textField: {
     marginLeft: theme.spacing.unit,
     marginRight: theme.spacing.unit,
+    minWidth: "100%"
   },
   input: {
     display: 'none',
@@ -44,14 +45,10 @@ class ComposePage extends React.Component {
 
     return (
       <Layout title={"Compose"}>
-
-        <IconButton color="secondary" component={Link} to={"/messaging"}  className={classes.button}>
-          <CloseIcon />
-        </IconButton>
-
-
         <form>
+          <Grid container spacing={6} justify="flex-end">
 
+            <Grid item xs={12}>
           <TextField
             required
             id="title"
@@ -60,7 +57,9 @@ class ComposePage extends React.Component {
             className={classes.textField}
             margin="normal"
           />
+            </Grid>
 
+            <Grid item xs={12}>
           <TextField
             id="body"
             label="Post"
@@ -69,23 +68,36 @@ class ComposePage extends React.Component {
             className={classes.textField}
             margin="normal"
           />
+            </Grid>
 
+            <Grid item xs={1}>
+              <IconButton color="primary" className={classes.button} component="span">
+                <MapIcon />
+              </IconButton>
+            </Grid>
+
+            <Grid item xs={1}>
           <IconButton color="primary" className={classes.button} component="span">
             <CameraIcon />
           </IconButton>
+            </Grid>
 
+            <Grid item xs={1}>
           <input accept="image/*" className={classes.input} id="icon-button-file" type="file" />
           <label htmlFor="icon-button-file">
             <IconButton color="primary" className={classes.button} component="span">
               <FileIcon />
             </IconButton>
           </label>
+            </Grid>
 
+            <Grid item xs={2} justify="flex-end">
 
           <Button variant="contained" color="primary" className={classes.button}>
             Post <PostIcon className={classes.rightIcon} />
           </Button>
-
+            </Grid>
+          </Grid>
         </form>
 
       </Layout>
