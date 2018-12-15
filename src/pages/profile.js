@@ -1,45 +1,61 @@
 import React from 'react'
 import Layout from '../components/layout'
+import Grid from '@material-ui/core/Grid';
+import TextField from '@material-ui/core/TextField/TextField'
+import classNames from 'classnames';
+import { withStyles } from '@material-ui/core/styles';
 
-function notifyMe() {
-  // Let's check if the browser supports notifications
-  if (!("Notification" in window)) {
-    console.log("This browser does not support desktop notification");
+const styles = theme => ({
+
+  textField: {
+    marginLeft: theme.spacing.unit,
+    marginRight: theme.spacing.unit,
+
+    minWidth: "90%"
   }
 
-  // Let's check whether notification permissions have already been granted
-  else if (Notification.permission === "granted") {
-    // If it's okay let's create a notification
-    //var notification = new Notification("Hi there!");
-  }
+});
 
-  // Otherwise, we need to ask the user for permission
-  else if (Notification.permission !== 'denied' || Notification.permission === "default") {
-    Notification.requestPermission(function (permission) {
-      // If the user accepts, let's create a notification
-      if (permission === "granted") {
-        //var notification = new Notification("Hi there!");
-      }
-    });
-  }
 
-  // At last, if the user has denied notifications, and you
-  // want to be respectful there is no need to bother them any more.
-}
 
-class IndexPage extends React.Component {
 
-  componentDidMount(){
-    notifyMe()
-  }
+class ProfilePage extends React.Component {
 
   render() {
+
+    const { classes } = this.props;
+
     return (
-      <Layout title={"Emergence"}>
-        Core
+      <Layout title={"Profile"}>
+        <Grid container spacing={12} justify="flex-end">
+
+          <Grid item xs={6}>
+            <TextField
+              required
+              id="firstname"
+              label="First Name"
+              defaultValue=""
+              className={classes.textField}
+              margin="normal"
+            />
+          </Grid>
+          <Grid item xs={6}>
+            <TextField
+              required
+              id="lastname"
+              label="Last Name"
+              defaultValue=""
+              className={classes.textField}
+              margin="normal"
+            />
+          </Grid>
+        </Grid>
+
       </Layout>
     )
   }
 }
 
-export default IndexPage
+
+
+export default withStyles(styles)(ProfilePage);

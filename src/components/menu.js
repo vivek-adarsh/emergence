@@ -5,6 +5,7 @@ import DashboardIcon from '@material-ui/icons/Dashboard';
 import FeedIcon from '@material-ui/icons/QuestionAnswer'
 import MapIcon from '@material-ui/icons/Map'
 
+import HelpIcon from '@material-ui/icons/Help';
 import ProfileIcon from '@material-ui/icons/Person';
 import ComposeIcon from '@material-ui/icons/Edit';
 import Divider from '@material-ui/core/Divider/Divider'
@@ -38,6 +39,12 @@ export default (props) => (
           <ComposeIcon />
         </ListItemIcon>
         <ListItemText primary="Message" />
+      </ListItem>
+      <ListItem button component={Link} to={"help"}>
+        <ListItemIcon>
+          <HelpIcon />
+        </ListItemIcon>
+        <ListItemText primary="Help" />
       </ListItem>
     </List>
     <Divider />

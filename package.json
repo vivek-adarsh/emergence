@@ -40,7 +40,7 @@
     "gatsby-image": "^2.0.22",
     "gatsby-plugin-catch-links": "^2.0.9",
     "gatsby-plugin-manifest": "^2.0.11",
-    "gatsby-plugin-offline": "^2.0.18",
+    "gatsby-plugin-offline": "file:./gatsby-plugin-offline-modified",
     "gatsby-plugin-react-helmet": "^3.0.3",
     "gatsby-plugin-sass": "2.0.3",
     "gatsby-plugin-sharp": "^2.0.14",

@@ -12,7 +12,7 @@ class Map extends React.Component {
     try {
       let { Map, Marker, Popup, TileLayer } = require('react-leaflet')
       this.map = (
-        <Map center={this.props.position} zoom={this.props.zoom} style={{ height: "500px", border: "1px solid #000000" }}>
+        <Map center={this.props.position} zoom={this.props.zoom} style={{ height: "90vh" , margin: "-24px", border: "1px solid #000000" }}>
           <TileLayer
             url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
             attribution="&copy; <a href=&quot;http://osm.org/copyright&quot;>OpenStreetMap</a> contributors"

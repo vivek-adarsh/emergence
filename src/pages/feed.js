@@ -26,6 +26,7 @@ class MessagePage extends React.Component {
     return (
       <Layout title={"Messaging"}>
         <Post/>
+        <Post/>
         <Fab color="secondary" component={Link} to={"compose"} className={classes.fab}><WriteIcon/></Fab>
       </Layout>
     )

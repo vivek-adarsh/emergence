@@ -36,6 +36,27 @@ const styles = theme => ({
 
 
 
+
+function getLocation(){
+  let fetchedLocation
+  if (!('geolocation' in navigator)) {
+    return;
+  }
+
+  navigator.geolocation.getCurrentPosition(function (position) {
+    fetchedLocation = {lat: position.coords.latitude, lng: position.coords.longitude};
+    locationInput.value = ('Lat: '+ fetchedLocation.lat + ', Long: ' + fetchedLocation.lng);
+    document.querySelector('#manual-location').classList.add('is-focused');
+  }, function (err) {
+    console.log(err);
+
+    fetchedLocation = {lat: 0, lng: 0};
+  }, {timeout: 7000});
+
+  console.log(fetchedLocation)
+}
+
+
 class ComposePage extends React.Component {
 
 
@@ -63,8 +84,9 @@ class ComposePage extends React.Component {
           <TextField
             id="body"
             label="Post"
-            placeholder="Placeholder"
+            placeholder="What would you like to say?"
             multiline
+            rows="6"
             className={classes.textField}
             margin="normal"
           />
