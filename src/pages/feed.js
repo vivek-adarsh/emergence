@@ -6,6 +6,7 @@ import { withStyles } from '@material-ui/core/styles';
 import WriteIcon from '@material-ui/icons/Edit';
 import { Link } from 'gatsby'
 import Post from "../components/post"
+import withRoot from '../withRoot'
 
 const styles = theme => ({
   fab: {
@@ -33,4 +34,4 @@ class MessagePage extends React.Component {
   }
 }
 
-export default withStyles(styles)(MessagePage)
+export default withRoot(withStyles(styles)(MessagePage))

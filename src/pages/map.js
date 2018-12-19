@@ -1,6 +1,7 @@
 import React from 'react'
 import Layout from '../components/layout'
 import Map from '../components/map/map'
+import withRoot from '../withRoot'
 
 class MapPage extends React.Component {
 
@@ -13,4 +14,4 @@ class MapPage extends React.Component {
   }
 }
 
-export default MapPage
+export default withRoot(MapPage)

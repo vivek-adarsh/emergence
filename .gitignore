@@ -8,5 +8,5 @@ yarn-error.log
 npm-debug.log
 
 # Build directory
-public
+/public
 .DS_Store

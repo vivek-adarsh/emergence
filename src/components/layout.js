@@ -11,17 +11,17 @@ import Typography from '@material-ui/core/Typography';
 import IconButton from '@material-ui/core/IconButton';
 import Badge from '@material-ui/core/Badge';
 import MenuIcon from '@material-ui/icons/Menu';
-import Hidden from '@material-ui/core/Hidden';
-import NotificationsIcon from '@material-ui/icons/Notifications';
-import Menu from './menu'
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import ChevronRightIcon from '@material-ui/icons/ChevronRight';
-
 import Divider from '@material-ui/core/Divider/Divider'
+
+import Menu from './menu'
 
 const drawerWidth = 240;
 
+
 const styles = theme => ({
+
   root: {
     display: 'flex',
   },
@@ -118,6 +118,7 @@ class ResponsiveDrawer extends React.Component {
           <html lang="en" />
         </Helmet>
         <div className={classes.root}>
+
           <CssBaseline />
           <AppBar
             position="fixed"
@@ -167,15 +168,15 @@ class ResponsiveDrawer extends React.Component {
             <div className={classes.toolbar} />
             {this.props.children}
           </main>
+
         </div>
       </>
-    );
+    )
   }
 }
 
 ResponsiveDrawer.propTypes = {
-  classes: PropTypes.object.isRequired,
-  theme: PropTypes.object.isRequired,
+  classes: PropTypes.object.isRequired
 };
 
 export default withStyles(styles, { withTheme: true })(ResponsiveDrawer);

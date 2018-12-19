@@ -4,6 +4,7 @@ import Grid from '@material-ui/core/Grid';
 import TextField from '@material-ui/core/TextField/TextField'
 import classNames from 'classnames';
 import { withStyles } from '@material-ui/core/styles';
+import withRoot from '../withRoot'
 
 const styles = theme => ({
 
@@ -58,4 +59,4 @@ class ProfilePage extends React.Component {
 
 
 
-export default withStyles(styles)(ProfilePage);
+export default withRoot(withStyles(styles)(ProfilePage))

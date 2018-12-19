@@ -14,6 +14,7 @@ import CameraIcon from '@material-ui/icons/PhotoCamera'
 import FileIcon from '@material-ui/icons/Image'
 import IconButton from '@material-ui/core/IconButton'
 import Grid from '@material-ui/core/Grid';
+import withRoot from '../withRoot'
 
 const styles = theme => ({
 
@@ -129,6 +130,6 @@ class ComposePage extends React.Component {
 
 ComposePage.propTypes = {
   classes: PropTypes.object.isRequired,
-};
+}
 
-export default withStyles(styles)(ComposePage);
+export default withRoot(withStyles(styles)(ComposePage))

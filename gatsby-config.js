@@ -12,7 +12,7 @@ module.exports = {
         short_name: 'EmerGence',
         start_url: '/',
         background_color: '#fff',
-        theme_color: '#3f51b5',
+        theme_color: '#c62828',
         display: 'minimal-ui',
         orientation: "portrait-primary",
         description: "A simple photo and message sharing app with offline functionality.",

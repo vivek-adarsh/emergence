@@ -49,7 +49,6 @@ export default (props) => (
     </List>
     <Divider />
     <List>
-      <ListSubheader inset>User Info</ListSubheader>
       <ListItem button  component={Link} to={"profile"}>
         <ListItemIcon>
           <ProfileIcon />
