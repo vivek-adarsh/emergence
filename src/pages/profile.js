@@ -34,7 +34,7 @@ class ProfilePage extends React.Component {
       city: "",
     }
 
-    this.handleSubmit = this.handleSubmit.bind(this)
+    this.handleChange = this.handleChange.bind(this)
   }
 
   handleChange = name => event => {

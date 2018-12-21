@@ -10,3 +10,5 @@ npm-debug.log
 # Build directory
 /public
 .DS_Store
+/db_server/logs/
+/db_server/data

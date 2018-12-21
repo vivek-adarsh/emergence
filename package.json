@@ -8,7 +8,10 @@
     "develop": "gatsby develop",
     "dev": "gatsby develop",
     "start": "gatsby serve",
-    "clean": "rm -rf public && rm -rf .cache"
+    "clean": "rm -rf public && rm -rf .cache",
+    "startDB": "mongod --fork --dbpath ./db_server/data --logpath ./db_server/logs/mongodb.log",
+    "startREST": "python ./db_server/run.py",
+    "stopDB": "mongod --shutdown --dbpath ./db_server/data "
   },
   "repository": {
     "type": "git",
