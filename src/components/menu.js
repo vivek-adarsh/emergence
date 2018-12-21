@@ -1,20 +1,17 @@
-import React from 'react';
+import React from 'react'
 import {Link} from 'gatsby'
-import {List, ListItem, ListItemIcon, ListSubheader, ListItemText} from '@material-ui/core';
-import DashboardIcon from '@material-ui/icons/Dashboard';
+import {List, ListItem, ListItemIcon, ListSubheader, ListItemText} from '@material-ui/core'
+import DashboardIcon from '@material-ui/icons/Dashboard'
 import FeedIcon from '@material-ui/icons/QuestionAnswer'
 import MapIcon from '@material-ui/icons/Map'
-
-import HelpIcon from '@material-ui/icons/Help';
-import ProfileIcon from '@material-ui/icons/Person';
-import ComposeIcon from '@material-ui/icons/Edit';
+import HelpIcon from '@material-ui/icons/Help'
+import ProfileIcon from '@material-ui/icons/Person'
+import ComposeIcon from '@material-ui/icons/Edit'
 import Divider from '@material-ui/core/Divider/Divider'
-import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 
 export default (props) => (
   <>
     <List>
-
       <ListItem button component={Link} to={"/"}>
         <ListItemIcon>
           <DashboardIcon />

@@ -1,6 +1,6 @@
 import React from 'react'
 import Layout from '../components/layout'
-import withRoot from '../withRoot'
+import withRoot from '../util/withRoot'
 
 
 class HelpPage extends React.Component {

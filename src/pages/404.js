@@ -1,11 +1,10 @@
 import React from 'react'
 import Layout from '../components/layout'
-import withRoot from '../withRoot'
+import withRoot from '../util/withRoot'
 
 class ErrorPage extends React.Component {
 
-  render()
-  {
+  render() {
     return (
       <Layout>
         <h1>Page Not Found</h1>

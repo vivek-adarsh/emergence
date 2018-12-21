@@ -6,7 +6,8 @@ import { withStyles } from '@material-ui/core/styles';
 import WriteIcon from '@material-ui/icons/Edit';
 import { Link } from 'gatsby'
 import Post from "../components/post"
-import withRoot from '../withRoot'
+import withRoot from '../util/withRoot'
+import {notifications} from '../util/deviceData'
 
 const styles = theme => ({
   fab: {
@@ -19,6 +20,11 @@ const styles = theme => ({
 
 
 class MessagePage extends React.Component {
+
+  componentDidMount(){
+    notifications()
+  }
+
 
   render() {
 

@@ -11,7 +11,7 @@ import CameraIcon from '@material-ui/icons/PhotoCamera'
 import Webcam from "react-webcam";
 import FileIcon from '@material-ui/icons/Image'
 import IconButton from '@material-ui/core/IconButton'
-import withRoot from '../withRoot'
+import withRoot from '../util/withRoot'
 
 const styles = theme => ({
 
