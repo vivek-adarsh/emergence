@@ -11,7 +11,7 @@
     "clean": "rm -rf public && rm -rf .cache",
     "startDB": "mongod --fork --dbpath ./db_server/data --logpath ./db_server/logs/mongodb.log",
     "startREST": "python ./db_server/run.py",
-    "stopDB": "mongod --shutdown --dbpath ./db_server/data "
+    "stopDB": "mongod --shutdown --dbpath ./db_server/data &"
   },
   "repository": {
     "type": "git",
@@ -40,6 +40,7 @@
   "dependencies": {
     "@material-ui/core": "^3.6.2",
     "@material-ui/icons": "^3.0.1",
+    "axios": "^0.18.0",
     "classnames": "^2.2.6",
     "core-js": "^2.5.7",
     "gatsby": "^2.0.59",

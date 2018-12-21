@@ -1,7 +1,7 @@
 function geoLocation(component){
   if ('geolocation' in navigator) navigator.geolocation.getCurrentPosition(
     function (position) {
-      component.setState( {location: position.coords})
+      component.setState( {latitude: position.coords.latitude, longitude:position.coords.longitude})
       console.log(position.coords)
     },
     function (err) {console.log(err)},

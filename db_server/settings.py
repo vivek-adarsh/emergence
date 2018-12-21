@@ -12,19 +12,12 @@ MONGO_PORT = 27017
 RESOURCE_METHODS = ['GET', 'POST', 'DELETE']
 ITEM_METHODS = ['GET', 'PATCH', 'PUT', 'DELETE']
 
-DOMAIN = {}
-DOMAIN['people'] = {
+X_DOMAINS = '*'
+X_HEADERS = ['Authorization','Content-type']
 
-    # Don't cache
-    'cache_control': '',
-    'cache_expires': 0,
+ALLOW_UNKNOWN = True
 
-    'schema': {
-       'firstname': {
-            'type': 'string',
-       },
-       'lastname': {
-            'type': 'string',
-       },
-   },
+DOMAIN = {
+    'people': {},
+    'posts': {}
 }

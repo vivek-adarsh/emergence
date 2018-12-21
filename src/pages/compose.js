@@ -1,4 +1,5 @@
 import React from 'react'
+
 import Layout from '../components/layout'
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
@@ -16,6 +17,7 @@ import IconButton from '@material-ui/core/IconButton'
 import Grid from '@material-ui/core/Grid';
 import withRoot from '../util/withRoot'
 import {geoLocation} from "../util/deviceData"
+import {post} from "../util/io"
 
 const styles = theme => ({
 
@@ -48,7 +50,8 @@ class ComposePage extends React.Component {
       title: "",
       body: "",
       image: null,
-      location: null
+      latitude: null,
+      longitude: null
     }
 
     this.handleChange = this.handleChange.bind(this)
@@ -68,13 +71,12 @@ class ComposePage extends React.Component {
 
   handleChange = name => event => {
     this.setState( {[name]: event.target.value})
-    console.log({[name]: event.target.value})
   }
 
   handleSubmit = (event) => {
     //Make a network call somewhere
     event.preventDefault()
-    console.log(this.state)
+    post("posts", this.state)
   }
 
   render() {

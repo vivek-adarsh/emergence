@@ -7,6 +7,7 @@ import TextField from '@material-ui/core/TextField/TextField'
 import FormControl from '@material-ui/core/FormControl'
 import NativeSelect from '@material-ui/core/NativeSelect'
 import { withStyles } from '@material-ui/core/styles'
+import { post } from '../util/io'
 import withRoot from '../util/withRoot'
 
 const styles = theme => ({
@@ -39,7 +40,7 @@ class ProfilePage extends React.Component {
 
   handleChange = name => event => {
     this.setState( {[name]: event.target.value})
-    console.log({[name]: event.target.value})
+    #post("people", this.state)
   }
 
   render() {
