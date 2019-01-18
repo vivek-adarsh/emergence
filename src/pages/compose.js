@@ -1,5 +1,6 @@
 import React from 'react'
 
+import { navigate } from 'gatsby'
 import Layout from '../components/layout'
 import PropTypes from 'prop-types'
 import classNames from 'classnames'
@@ -20,8 +21,8 @@ import {post} from "../util/io"
 
 import Camera from "../components/camera"
 
+let fileReader
 const styles = theme => ({
-
   textField: {
     marginLeft: theme.spacing.unit,
     marginRight: theme.spacing.unit,
@@ -38,8 +39,6 @@ const styles = theme => ({
   },
 
 })
-
-let fileReader
 
 class ComposePage extends React.Component {
 
@@ -63,38 +62,42 @@ class ComposePage extends React.Component {
   }
 
   componentDidMount(){
+
+    //Get location when page first loads
     geoLocation(this)
   }
 
   showCamera = () => {
-    console.log("Show camera")
     this.setState({showCamera: true})
   }
 
-  handleFileChosen = (file)  => {
-    fileReader = new FileReader()
-    fileReader.onloaded = function(e){
-      file
-      console.log("image")
+  //Do this when we change a field (Such as selecting a file)
+  handleChange = name => event => {
+
+    if(name === "file"){
+      fileReader = new FileReader()
+      fileReader.onloadend = (e) => {
+        this.setState({image: fileReader.result})
+      }
+      fileReader.readAsDataURL(event.target.files[0]);
+    }
+    else {
+      this.setState( {[name]: event.target.value})
     }
   }
 
-  handleChange = name => event => {
-    this.setState( {[name]: event.target.value})
-  }
-
+  //Do this when we submit the form
   handleSubmit = (event) => {
     //Make a network call somewhere
     event.preventDefault()
     post("posts", this.state)
+    navigate("feed")
   }
 
-  handleCapture = (image) => {
-    this.image = image
-
-    this.setState({showCamera: false})
+  //Do this when we capture an image from a device camera
+  handleCapture = (capturedImage) => {
+    this.setState({image: capturedImage, showCamera: false})
     console.log("Image Captured")
-
   }
 
   render() {
@@ -105,6 +108,8 @@ class ComposePage extends React.Component {
         {this.state.showCamera && (
           <Camera onCapture={this.handleCapture}/>
         )}
+
+        { this.state.image!=null && (<img src={this.state.image} width="100%"/>) }
 
         <form onSubmit={this.handleSubmit}>
           <Grid container spacing={16} justify="flex-end">
@@ -141,7 +146,6 @@ class ComposePage extends React.Component {
               </IconButton>
             </Grid>
 
-
             <Grid item xs={1}>
               <IconButton color="primary"
                           className={classes.button}
@@ -156,8 +160,10 @@ class ComposePage extends React.Component {
               <input accept="image/*"
                      className={classes.input}
                      id="image-file"
-                     onChange={this.handleChange("image")}
-                     type="file" />
+                     onChange={this.handleChange("file")}
+                     type="file"
+                     accept=".jpg,.png"
+              />
               <label htmlFor="image-file">
                 <IconButton color="primary"
                             className={classes.button}
@@ -181,10 +187,6 @@ class ComposePage extends React.Component {
       </Layout>
     )
   }
-}
-
-ComposePage.propTypes = {
-  classes: PropTypes.object.isRequired,
 }
 
 export default withRoot(withStyles(styles)(ComposePage))
