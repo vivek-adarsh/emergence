@@ -40,7 +40,7 @@ class ProfilePage extends React.Component {
 
   handleChange = name => event => {
     this.setState( {[name]: event.target.value})
-    #post("people", this.state)
+    //post("people", this.state)
   }
 
   render() {
