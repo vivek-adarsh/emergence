@@ -17,7 +17,7 @@ import IconButton from '@material-ui/core/IconButton'
 import Grid from '@material-ui/core/Grid'
 import withRoot from '../util/withRoot'
 import {geoLocation} from "../util/deviceData"
-import {post} from "../util/io"
+import {postJson} from "../util/io"
 
 import Camera from "../components/camera"
 
@@ -43,7 +43,7 @@ const styles = theme => ({
 class ComposePage extends React.Component {
 
   constructor() {
-    super();
+    super()
 
     //Set Defaults
     this.state = {
@@ -90,7 +90,7 @@ class ComposePage extends React.Component {
   handleSubmit = (event) => {
     //Make a network call somewhere
     event.preventDefault()
-    post("posts", this.state)
+    postJson("posts", this.state)
     navigate("feed")
   }
 
@@ -142,7 +142,7 @@ class ComposePage extends React.Component {
               <IconButton color="primary"
                           className={classes.button}
                           component="span">
-                {this.state.location?<GpsIcon/>:<GpsNoIcon/>}
+                {this.state.latitude?<GpsIcon/>:<GpsNoIcon/>}
               </IconButton>
             </Grid>
 

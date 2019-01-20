@@ -51,7 +51,7 @@
     "gatsby-plugin-react-helmet": "^3.0.3",
     "gatsby-plugin-sharp": "^2.0.17",
     "gatsby-source-filesystem": "^2.x",
-    "gatsby-source-mongodb": "^2.0.10",
+    "gatsby-source-mongodb": "^2.0.x",
     "gatsby-transformer-sharp": "^2.1.10",
     "jss": "^9.8.7",
     "leaflet": "^1.x",

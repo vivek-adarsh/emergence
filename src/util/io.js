@@ -1,7 +1,9 @@
-function post(path,data){
-  console.log("POST to '"+path+"':\n" + JSON.stringify(data))
+const LOCAL_SERVER = 'http://localhost:5000/'
 
-  fetch('http://localhost:5000/'+path, {
+function postJson(path,data){
+  console.log("POST to '"+LOCAL_SERVER+path+"':\n" + JSON.stringify(data))
+
+  fetch(LOCAL_SERVER+path, {
     mode: 'cors',
     method: 'POST',
     cache: "no-cache",
@@ -12,4 +14,6 @@ function post(path,data){
   })
 }
 
-export {post}
+
+export {postJson}
+
