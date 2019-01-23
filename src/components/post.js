@@ -18,10 +18,15 @@ import MoreVertIcon from '@material-ui/icons/MoreVert'
 const styles = theme => ({
   card: {
     maxWidth: 800,
+    marginBottom:"1em"
   },
   media: {
     height: 0,
-    paddingTop: '56.25%', // 16:9
+    width: '50px',
+    paddingTop: '50px',
+  },
+  mainImg: {
+    width: '100%'
   },
   actions: {
     display: 'flex',
@@ -39,73 +44,79 @@ const styles = theme => ({
   expandOpen: {
     transform: 'rotate(180deg)',
   },
-  avatar: {
-    backgroundColor: red[500],
-  },
-});
+})
 
 class RecipeReviewCard extends React.Component {
-  state = { expanded: false };
+
+  constructor() {
+    super()
+
+    //Set Defaults
+    this.state = {
+      expanded: false,
+      title: "",
+      body: "",
+      image: null,
+      latitude: null,
+      longitude: null
+    }
+
+    this.handleExpandClick = this.handleExpandClick.bind(this)
+  }
 
   handleExpandClick = () => {
-    this.setState(state => ({ expanded: !state.expanded }));
-  };
+    this.setState({ expanded: !this.state.expanded })
+  }
 
   render() {
-    const { classes } = this.props;
+    const { classes, post } = this.props;
 
+    console.log(post)
     return (
       <Card className={classes.card}>
         <CardHeader
           avatar={
-            <Avatar aria-label="Name" className={classes.avatar}>
-              AV
-            </Avatar>
+            <CardMedia
+              className={classes.media}
+              image={post.image}
+              title="Post Thumbnail"
+            />
           }
           action={
-            <IconButton>
-              <MoreVertIcon />
+            (post.image || post.body) && <IconButton
+              className={classnames(classes.expand, {
+                [classes.expandOpen]: this.state.expanded,
+              })}
+              onClick={this.handleExpandClick}
+              aria-expanded={this.state.expanded}
+              aria-label="Show more"
+            >
+              <ExpandMoreIcon />
             </IconButton>
           }
-          title="Title"
-          subheader="Date"
+          title={post.title}
+          subheader={post._updated}
         />
-        <CardMedia
-          className={classes.media}
-          image="source"
-          title="Alt Text"
-        />
-        <CardContent>
-          <Typography component="p">
-            Content
-          </Typography>
-        </CardContent>
-        <CardActions className={classes.actions} disableActionSpacing>
-          <IconButton
-            className={classnames(classes.expand, {
-              [classes.expandOpen]: this.state.expanded,
-            })}
-            onClick={this.handleExpandClick}
-            aria-expanded={this.state.expanded}
-            aria-label="Show more"
-          >
-            <ExpandMoreIcon />
-          </IconButton>
-        </CardActions>
+
         <Collapse in={this.state.expanded} timeout="auto" unmountOnExit>
           <CardContent>
             <Typography paragraph>
-              More content
+              {post.body}
             </Typography>
+            {post.image && (<img
+              className={classes.mainImg}
+              src={post.image}
+              title="Post Thumbnail"
+            />)}
           </CardContent>
         </Collapse>
       </Card>
-    );
+    )
   }
 }
 
 RecipeReviewCard.propTypes = {
   classes: PropTypes.object.isRequired,
-};
+}
 
-export default withStyles(styles)(RecipeReviewCard);
+export default withStyles(styles)(RecipeReviewCard)

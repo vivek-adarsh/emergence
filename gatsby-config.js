@@ -33,6 +33,14 @@ module.exports = {
         path: `${__dirname}/src/images/`,
       },
     },
+    {
+      resolve: `gatsby-source-mongodb`,
+      options: {
+        dbName: `emergence`,
+        server: { address: 'localhost', port: 27017 },
+        collection: [`posts`]
+      }
+    },
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
     'gatsby-plugin-catch-links',
