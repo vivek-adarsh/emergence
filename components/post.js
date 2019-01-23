@@ -1,5 +1,5 @@
 import React from 'react'
-import PropTypes from 'prop-types'
+
 import { withStyles } from '@material-ui/core/styles'
 import classnames from 'classnames'
 import Card from '@material-ui/core/Card'
@@ -115,8 +115,5 @@ class RecipeReviewCard extends React.Component {
   }
 }
 
-RecipeReviewCard.propTypes = {
-  classes: PropTypes.object.isRequired,
-}
 
 export default withStyles(styles)(RecipeReviewCard)

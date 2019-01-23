@@ -4,7 +4,9 @@ import Fab from '@material-ui/core/Fab';
 import classNames from 'classnames';
 import { withStyles } from '@material-ui/core/styles';
 import WriteIcon from '@material-ui/icons/Edit';
-import { graphql, Link } from 'gatsby'
+
+
+import Link from 'next/link'
 import Post from "../components/post"
 import withRoot from '../util/withRoot'
 import {notifications} from '../util/deviceData'
@@ -37,11 +39,15 @@ class MessagePage extends React.Component {
       <Layout title={"Messaging"}>
 
         {
-          this.props.data.allMongodbEmergencePosts.edges.map((item) =>
-            <Post key={item.node.id} post={item.node}/>
-          )
+          //this.props.data.allMongodbEmergencePosts.edges.map((item) =>
+            //<Post key={item.node.id} post={item.node}/>
+          //)
         }
-        <Fab color="secondary" component={Link} to={"compose"} className={classes.fab}><WriteIcon/></Fab>
+
+
+
+        <Link href={"compose"}><Fab color="secondary"   className={classes.fab}><WriteIcon/></Fab></Link>
+
       </Layout>
     )
   }
@@ -49,20 +55,3 @@ class MessagePage extends React.Component {
 
 export default withRoot(withStyles(styles)(MessagePage))
 
-export const query = graphql`
-  query {
-     allMongodbEmergencePosts {
-      edges {
-        node {
-          id
-          _updated(formatString: "MMM Do, YYYY")
-          title
-          body
-          image
-          latitude
-          longitude
-        }
-      }
-    }
-  }
-`

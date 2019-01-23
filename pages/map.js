@@ -1,8 +1,10 @@
 import React from 'react'
 import Layout from '../components/layout'
-import MapNew from '../components/map/map'
+import Map from '../components/map/map'
 import withRoot from '../util/withRoot'
 import {geoLocation} from "../util/deviceData"
+import Head from 'next/head'
+
 
 class MapPage extends React.Component {
 
@@ -22,7 +24,10 @@ class MapPage extends React.Component {
   render() {
     return(
       <Layout title={"Map"}>
-        <MapNew />
+        <Head>
+          <link rel="stylesheet" href="/static/leaflet.css" />
+        </Head>
+        <Map />
       </Layout>
     )
   }

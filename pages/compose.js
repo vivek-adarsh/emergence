@@ -1,6 +1,6 @@
 import React from 'react'
+import Router from 'next/router'
 
-import { navigate } from 'gatsby'
 import Layout from '../components/layout'
 import PropTypes from 'prop-types'
 import classNames from 'classnames'
@@ -91,7 +91,7 @@ class ComposePage extends React.Component {
     //Make a network call somewhere
     event.preventDefault()
     postJson("posts", this.state)
-    navigate("feed")
+    Router.push('/feed')
   }
 
   //Do this when we capture an image from a device camera
