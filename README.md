@@ -15,6 +15,7 @@ Then install [EVE](http://docs.python-eve.org) `pip install eve`
 # Development Build
 To develop run
 `npm dev`
+`npm startDB`
 Visit [localhost:8000](http://localhost:9000) to see the running application.
 
 
@@ -22,7 +23,6 @@ Visit [localhost:8000](http://localhost:9000) to see the running application.
 To run the production database and server run
 `npm build`
 `npm startDB`
-`npm startREST`
 `npm start`
 Visit [localhost:8080](http://localhost:9000) to see the running application.
 
