@@ -2,8 +2,6 @@ import React from 'react'
 import Router from 'next/router'
 
 import Layout from '../components/layout'
-import PropTypes from 'prop-types'
-import classNames from 'classnames'
 import { withStyles } from '@material-ui/core/styles';
 import TextField from '@material-ui/core/TextField'
 import Button from '@material-ui/core/Button'
@@ -15,7 +13,6 @@ import CameraIcon from '@material-ui/icons/PhotoCamera'
 import FileIcon from '@material-ui/icons/Image'
 import IconButton from '@material-ui/core/IconButton'
 import Grid from '@material-ui/core/Grid'
-import withRoot from '../util/withRoot'
 import {geoLocation} from "../util/deviceData"
 import {postJson} from "../util/io"
 
@@ -62,9 +59,7 @@ class ComposePage extends React.Component {
   }
 
   componentDidMount(){
-
-    //Get location when page first loads
-    geoLocation(this)
+    geoLocation(this) //Get location when page first loads
   }
 
   showCamera = () => {
@@ -189,4 +184,4 @@ class ComposePage extends React.Component {
   }
 }
 
-export default withRoot(withStyles(styles)(ComposePage))
+export default withStyles(styles)(ComposePage)

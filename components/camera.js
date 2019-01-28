@@ -1,7 +1,5 @@
 import React from 'react'
 import Webcam from "react-webcam"
-import { withStyles } from '@material-ui/core/styles';
-import withRoot from '../util/withRoot'
 
 class Camera extends React.Component {
 

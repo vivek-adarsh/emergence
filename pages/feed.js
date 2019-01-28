@@ -8,9 +8,12 @@ import WriteIcon from '@material-ui/icons/Edit';
 
 import Link from 'next/link'
 import Post from "../components/post"
-import withRoot from '../util/withRoot'
 import {notifications} from '../util/deviceData'
 
+import {getJson} from "../util/io"
+
+
+import fetch from 'isomorphic-unfetch'
 
 const styles = theme => ({
   fab: {
@@ -23,28 +26,37 @@ const styles = theme => ({
 
 
 
-class MessagePage extends React.Component {
+class Feed extends React.Component {
+
+  static async getInitialProps (props)  {
+    const res = await fetch('http://localhost:3000/api/posts/')
+    const data = await res.json()
+
+    console.log(`Fetched ${data.length} posts`)
+
+    return {
+      posts: data
+    }
+  }
 
   componentDidMount(){
     notifications()
   }
 
-
-
   render() {
 
-    const { classes } = this.props;
+    const { classes } = this.props
+
+
 
     return (
-      <Layout title={"Messaging"}>
+      <Layout title={"Messages"}>
 
         {
-          //this.props.data.allMongodbEmergencePosts.edges.map((item) =>
-            //<Post key={item.node.id} post={item.node}/>
-          //)
+          this.props.posts.map((post) =>
+            <Post key={post.id} post={post}/>
+          )
         }
-
-
 
         <Link href={"compose"}><Fab color="secondary"   className={classes.fab}><WriteIcon/></Fab></Link>
 
@@ -53,5 +65,4 @@ class MessagePage extends React.Component {
   }
 }
 
-export default withRoot(withStyles(styles)(MessagePage))
-
+export default withStyles(styles)(Feed)

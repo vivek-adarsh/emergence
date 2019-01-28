@@ -54,11 +54,6 @@ class RecipeReviewCard extends React.Component {
     //Set Defaults
     this.state = {
       expanded: false,
-      title: "",
-      body: "",
-      image: null,
-      latitude: null,
-      longitude: null
     }
 
     this.handleExpandClick = this.handleExpandClick.bind(this)
@@ -69,14 +64,13 @@ class RecipeReviewCard extends React.Component {
   }
 
   render() {
-    const { classes, post } = this.props;
+    const { classes, post } = this.props
 
-    console.log(post)
     return (
       <Card className={classes.card}>
         <CardHeader
           avatar={
-            <CardMedia
+            post.image && <CardMedia
               className={classes.media}
               image={post.image}
               title="Post Thumbnail"

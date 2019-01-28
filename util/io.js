@@ -1,9 +1,10 @@
-const LOCAL_SERVER = 'http://localhost:5000/'
+import fetch from 'unfetch'
+
 
 function postJson(path,data){
-  console.log("POST to '"+LOCAL_SERVER+path+"':\n" + JSON.stringify(data))
+  console.log("POST to '/api/"+path+"':\n" + JSON.stringify(data))
 
-  fetch(LOCAL_SERVER+path, {
+  fetch("/api/"+path, {
     mode: 'cors',
     method: 'POST',
     cache: "no-cache",
@@ -11,9 +12,23 @@ function postJson(path,data){
       "Content-Type": "application/json"
     },
     body: JSON.stringify(data)
-  })
+  }).then( (response) => console.log(response) )
 }
 
 
-export {postJson}
+ function getJson(path){
+  console.log("GET from '/api/"+path+"':\n" )
+
+  fetch("/api/"+path, {
+    mode: 'cors',
+    method: 'GET',
+    cache: "no-cache",
+    headers: {
+      "Content-Type": "application/json"
+    },
+  }).then( (response) => console.log(response) )
+}
+
+
+export {getJson, postJson}
 

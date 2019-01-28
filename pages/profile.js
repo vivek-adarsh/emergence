@@ -8,7 +8,6 @@ import FormControl from '@material-ui/core/FormControl'
 import NativeSelect from '@material-ui/core/NativeSelect'
 import { withStyles } from '@material-ui/core/styles'
 import { post } from '../util/io'
-import withRoot from '../util/withRoot'
 
 const styles = theme => ({
 
@@ -197,4 +196,4 @@ class ProfilePage extends React.Component {
 
 
 
-export default withRoot(withStyles(styles)(ProfilePage))
+export default withStyles(styles)(ProfilePage)
