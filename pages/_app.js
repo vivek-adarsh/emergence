@@ -27,6 +27,9 @@ class MyApp extends App {
       <Container>
         <Head>
           <title>EmerGence</title>
+          <link rel="shortcut icon" href="/icons/icon-48x48.png"/>
+          <link rel="manifest" href="/manifest.webmanifest"/>
+          <meta name="theme-color" content="#c62828"/>
         </Head>
         {/* Wrap every page in Jss and Theme providers */}
         <JssProvider

@@ -27,6 +27,7 @@ class MyDocument extends Document {
         />
       </Head>
       <body>
+      <noscript>This app requires JavaScript to function.</noscript>
       <Main />
       <NextScript />
       </body>
