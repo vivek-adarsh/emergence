@@ -5,25 +5,20 @@ Once Node.js is installed, open your command prompt or terminal and run `npm i g
 
 Then **navigate into this project folder**. There, run `npm install` to install all required dependencies.
 
-To setup the backend server we need to install MongoDB and a REST interface for it.
-
-First install [MongoDB](https://docs.mongodb.com/manual/administration/install-on-linux/).
-
-Then install [EVE](http://docs.python-eve.org) `pip install eve`
+Next to setup the database we need to install [MongoDB](https://docs.mongodb.com/manual/administration/install-on-linux/).
 
 ---
 # Development Build
 To develop run
+`npm startDB`
 `npm dev`
-Visit [localhost:8000](http://localhost:9000) to see the running application.
+Visit [localhost:3000](http://localhost:3000) to see the running application.
 
 
 # Production Build
 To run the production database and server run
 `npm build`
 `npm startDB`
-`npm startREST`
 `npm start`
-Visit [localhost:8080](http://localhost:9000) to see the running application.
-
+Visit [localhost:3000](http://localhost:3000) to see the running application.
 
