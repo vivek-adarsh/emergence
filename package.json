@@ -4,14 +4,11 @@
   "description": "A Disaster Relief APP",
   "main": "index.js",
   "scripts": {
-    "build": "gatsby build",
-    "develop": "gatsby develop",
-    "dev": "gatsby develop",
-    "start": "gatsby serve",
-    "clean": "rm -rf public && rm -rf .cache",
-    "startDB": "mongod --fork --dbpath ./db_server/data --logpath ./db_server/logs/mongodb.log",
-    "startREST": "python ./db_server/run.py",
-    "stopDB": "mongod --shutdown --dbpath ./db_server/data &"
+    "dev": "nodemon -w server -w package.json server/index.js",
+    "build": "next build",
+    "start": "NODE_ENV=production node server/index.js",
+    "startDB": "mongod --fork --dbpath ./data --logpath ./logs/mongodb.log",
+    "stopDB": "mongod --shutdown --dbpath ./data &"
   },
   "repository": {
     "type": "git",
@@ -23,7 +20,7 @@
     "web",
     "app"
   ],
-  "author": "U Paul",
+  "author": "U Paul, Michael Nekrasov",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/u-paul/emergence/issues"
@@ -35,33 +32,41 @@
     "eslint-config-prettier": "^3.x",
     "eslint-plugin-react": "^7.x",
     "eslint-plugin-jsx-a11y": "^6.x",
-    "prettier": "^1.x"
+    "prettier": "^1.x",
+    "babel-eslint": "^10.x",
+    "nodemon": "^1.x"
   },
   "dependencies": {
     "@material-ui/core": "^3.x",
     "@material-ui/icons": "^3.x",
-    "axios": "^0.18.0",
-    "classnames": "^2.2.6",
-    "core-js": "^2.6.2",
-    "gatsby": "^2.x",
-    "gatsby-cli": "^2.4.8",
-    "gatsby-image": "^2.x",
-    "gatsby-plugin-catch-links": "^2.0.9",
-    "gatsby-plugin-manifest": "^2.0.13",
-    "gatsby-plugin-offline": "file:./gatsby-plugin-offline-modified",
-    "gatsby-plugin-react-helmet": "^3.0.3",
-    "gatsby-plugin-sharp": "^2.0.17",
-    "gatsby-source-filesystem": "^2.x",
-    "gatsby-source-mongodb": "^2.0.x",
-    "gatsby-transformer-sharp": "^2.1.10",
-    "jss": "^9.8.7",
+    "@zeit/next-css": "^1.x",
+    "acorn": "^6.x",
+    "body-parser": "^1.x",
+    "classnames": "^2.x",
+    "express": "^4.x",
+    "isomorphic-unfetch": "^3.0.0",
+    "jss": "latest",
     "leaflet": "^1.x",
     "leaflet-heatmap": "^1.0.0",
-    "prop-types": "^15.6.2",
-    "react": "^16.7.0",
-    "react-dom": "^16.7.0",
-    "react-helmet": "^5.x",
-    "react-jss": "^8.6.1",
+    "mongoose": "^5.x",
+    "mongoose-crudify": "^0.2.0",
+    "next": "^7.x",
+    "prop-types": "latest",
+    "react": "^16.x",
+    "react-dom": "^16.x",
+    "react-jss": "^8.x",
     "react-webcam": "^1.x"
+  },
+  "nodemonConfig": {
+    "verbose": true,
+    "ignore": [
+      "node_modules",
+      ".next"
+    ],
+    "watch": [
+      "server/**/*",
+      "data/**/*"
+    ],
+    "ext": "js json"
   }
 }
