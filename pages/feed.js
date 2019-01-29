@@ -47,12 +47,11 @@ class Feed extends React.Component {
 
     const { classes } = this.props
 
-
-
     return (
       <Layout title={"Messages"}>
-
+        {this.props.posts.length == 0 &&  "Nothing to display"}
         {
+
           this.props.posts.map((post) =>
             <Post key={post.id} post={post}/>
           )

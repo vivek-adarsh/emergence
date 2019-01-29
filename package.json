@@ -7,8 +7,7 @@
     "dev": "nodemon -w server -w package.json server/index.js",
     "build": "next build",
     "start": "NODE_ENV=production node server/index.js",
-    "startDB": "mongod --fork --dbpath ./data --logpath ./logs/mongodb.log",
-    "stopDB": "mongod --shutdown --dbpath ./data &"
+    "startDB": "node server/startMongoDB.js"
   },
   "repository": {
     "type": "git",
@@ -44,12 +43,12 @@
     "body-parser": "^1.x",
     "classnames": "^2.x",
     "express": "^4.x",
-    "isomorphic-unfetch": "^3.0.0",
+    "isomorphic-unfetch": "^3.x",
     "jss": "latest",
     "leaflet": "^1.x",
-    "leaflet-heatmap": "^1.0.0",
+    "leaflet-heatmap": "^1.x",
     "mongoose": "^5.x",
-    "mongoose-crudify": "^0.2.0",
+    "mongoose-crudify": "^0.2.x",
     "next": "^7.x",
     "prop-types": "latest",
     "react": "^16.x",

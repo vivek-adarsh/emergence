@@ -3,10 +3,16 @@ const mongoose = require('mongoose')
 const next = require('next')
 const bodyParser = require('body-parser')
 
+
 //Configure ports
 const PORT = process.env.PORT || 3000
 const dev = process.env.NODE_DEV !== 'production'
-const db = mongoose.connect('mongodb://localhost:27017/emergence')
+const db = mongoose.connect('mongodb://localhost:27017/emergence', {useNewUrlParser: true}, function(error){
+  if(error){
+    console.log(error)
+    process.exit()
+  }
+})
 
 
 //Setup Next.js server
@@ -26,8 +32,10 @@ nextApp.prepare().then(() => {
     return handle(req,res)
   })
 
+  console.log("Server Started")
   app.listen(PORT, err => {
     if (err) throw err;
     console.log(`ready at http://localhost:${PORT}`)
   })
+
 })
