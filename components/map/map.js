@@ -5,23 +5,6 @@ import React from 'react'
 
 class Map extends React.Component {
 
-  geojsonFeature = {
-    "type": "Feature",
-    "properties": {
-      "name": "Coors Field",
-      "amenity": "Baseball Stadium",
-      "popupContent": "This is where the Rockies play!"
-    },
-    "geometry": {
-      "type": "Polygon",
-      "coordinates": [[
-        [-119.876, 34.414],
-        [-119.877, 34.415],
-        [-119.876, 34.416],
-      ]]
-    }
-  }
-
   mapStyle = {
     height: "90vh",
     margin: "-24px",
@@ -41,42 +24,45 @@ class Map extends React.Component {
     try {
       let L = require('leaflet')
       let HM = require('leaflet-heatmap')
+      let map = L.map(m)
+      let layerControl = L.control.layers()
+      layerControl.addTo(map)
 
+      // Locate user on map
+      map.locate({ setView: true, maxZoom: 16 })
+      map.on('locationerror', (e) => map.setView([34.414079, -119.876107], 16))
+
+
+      //Create Base Layer (tiles to overlay on)
       let baseLayer = L.tileLayer(
         'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
           attribution: '&copy; <a href=&quot;http://osm.org/copyright&quot;>OpenStreetMap</a> contributors',
           maxZoom: 18
         }
       )
+      map.addLayer(baseLayer)
 
-      let testData = {
-        max: 8,
-        data: [{lat: 34.414, lng:-119.876, count: 8},{lat: 34.415, lng:-119.879, count: 5}]
-      }
+      console.log(this.props.layers)
+      this.props.layers.map(lyr => {
+        console.log(lyr)
 
+        let layer
+        if (lyr.type == "heatmap") {
+          layer = new HM({
+            radius: lyr.radius,
+            maxOpacity: .8,
+            scaleRadius: true, // scales the radius based on map zoom
+            useLocalExtrema: false,  // if false uses the global maximum for colorization
+            latField: 'lat',    // name of latitude field - default "lat"
+            lngField: 'lng',    // name of longitude field - default "lng"
+            valueField: 'count' // name of value field - default "value"
+          })
+          layer.setData(lyr)
+        }
+        map.addLayer(layer)
+        layerControl.addOverlay(layer, lyr.name)
 
-      let heatmapLayer = new HM({
-        "radius": 0.003,
-        "maxOpacity": .8,
-        "scaleRadius": true, // scales the radius based on map zoom
-        "useLocalExtrema": false,  // if false uses the global maximum for colorization
-        latField: 'lat',    // name of latitude field - default "lat"
-        lngField: 'lng',    // name of longitude field - default "lng"
-        valueField: 'count' // name of value field - default "value"
       })
-      heatmapLayer.setData(testData)
-
-      let map = L.map(m, {
-        center: this.props.position,
-        zoom: this.props.zoom,
-        layers: [baseLayer, heatmapLayer]
-      })
-
-      let layerControl = L.control.layers()
-      layerControl.addOverlay(heatmapLayer, "Heatmap")
-      layerControl.addTo(map)
-
-
 
     }
     catch (e) {
@@ -95,11 +81,6 @@ class Map extends React.Component {
       </>
     )
   }
-}
-
-Map.defaultProps = {
-  zoom: 16,
-  position: [34.414079, -119.876107]
 }
 
 export default Map

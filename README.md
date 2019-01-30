@@ -22,3 +22,11 @@ To run the production database and server run
 `npm start`
 Visit [localhost:3000](http://localhost:3000) to see the running application.
 
+
+
+
+
+---
+# Test Mapping
+To generate some sample layers, start MongoDb then run 
+`node plugins/testMapData.js`

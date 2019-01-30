@@ -3,7 +3,7 @@ import fetch from 'isomorphic-unfetch'
 function postJson(path,data){
   console.log("POST to '/api/"+path+"':\n" + JSON.stringify(data))
 
-  fetch("/api/"+path, {
+  fetch("http://localhost:3000/api/"+path, {
     mode: 'cors',
     method: 'POST',
     cache: "no-cache",

@@ -26,4 +26,11 @@ router.use( '/posts', mongooseCrudify({
   })
 )
 
+router.use( '/layers', mongooseCrudify({
+    Model: Models.Layer,
+    selectFields: '-__v', // Hide '__v' property
+  })
+)
+
+
 module.exports = router

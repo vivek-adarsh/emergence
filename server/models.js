@@ -1,7 +1,7 @@
 const mongoose = require('mongoose')
-const schema = mongoose.Schema
+const Schema = mongoose.Schema
 
-const postModel = new schema({
+const postModel = new Schema({
   title: { type: String} ,
   body: { type: String} ,
   image: { type: String} ,
@@ -9,7 +9,14 @@ const postModel = new schema({
   longitude: { type: Number} ,
 })
 
+
+const layerModel = new Schema({
+  name: { type: String} ,
+  type: { type: String} ,
+}, { strict: false })
+
 //List all models for export
 module.exports = {
-  Post: mongoose.model('post', postModel)
+  Post: mongoose.model('post', postModel),
+  Layer: mongoose.model('layer', layerModel)
 }

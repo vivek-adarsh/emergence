@@ -2,15 +2,13 @@ import React from 'react'
 import Head from 'next/head'
 import Layout from '../components/layout'
 import Map from '../components/map/map'
-
 import {getJson} from "../util/io"
-
 
 class MapPage extends React.Component {
 
   static async getInitialProps () {
     return {
-      layers: getJson("layers")
+      layers: await getJson("layers")
     }
   }
 
@@ -20,7 +18,7 @@ class MapPage extends React.Component {
         <Head>
           <link rel="stylesheet" href="/static/leaflet.css" />
         </Head>
-        <Map />
+        <Map layers={this.props.layers}/>
       </Layout>
     )
   }
