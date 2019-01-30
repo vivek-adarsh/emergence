@@ -1,23 +1,17 @@
 import React from 'react'
+import Head from 'next/head'
 import Layout from '../components/layout'
 import Map from '../components/map/map'
-import {geoLocation} from "../util/deviceData"
-import Head from 'next/head'
+
+import {getJson} from "../util/io"
 
 
 class MapPage extends React.Component {
 
-  constructor() {
-    super();
-
-    //Set Defaults
-    this.state = {
-      location: null
+  static async getInitialProps () {
+    return {
+      layers: getJson("layers")
     }
-  }
-
-  componentDidMount(){
-    geoLocation(this)
   }
 
   render() {

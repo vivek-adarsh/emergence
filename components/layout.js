@@ -1,21 +1,15 @@
 import React from 'react'
 
 import classNames from 'classnames'
+
 import { withStyles } from '@material-ui/core/styles'
-import Drawer from '@material-ui/core/Drawer'
-import AppBar from '@material-ui/core/AppBar'
-import Toolbar from '@material-ui/core/Toolbar'
-import Typography from '@material-ui/core/Typography'
-import IconButton from '@material-ui/core/IconButton'
-import MenuIcon from '@material-ui/icons/Menu'
-import ChevronLeftIcon from '@material-ui/icons/ChevronLeft'
-import ChevronRightIcon from '@material-ui/icons/ChevronRight'
+import {AppBar, Drawer, Toolbar,Typography,IconButton} from '@material-ui/core'
+import {Menu as MenuIcon, ChevronLeft as ChevronLeftIcon} from '@material-ui/icons/'
 import Divider from '@material-ui/core/Divider/Divider'
 
 import Menu from './menu'
 
-const drawerWidth = 240;
-
+const drawerWidth = 240
 
 const styles = theme => ({
 
@@ -94,18 +88,18 @@ const styles = theme => ({
 class ResponsiveDrawer extends React.Component {
   state = {
     open: false,
-  };
+  }
 
   handleDrawerOpen = () => {
-    this.setState({ open: true });
-  };
+    this.setState({ open: true })
+  }
 
   handleDrawerClose = () => {
-    this.setState({ open: false });
-  };
+    this.setState({ open: false })
+  }
 
   render() {
-    const { classes, theme } = this.props;
+    const { classes, theme } = this.props
 
     return (
       <>
@@ -148,9 +142,7 @@ class ResponsiveDrawer extends React.Component {
             open={this.state.open}
           >
             <div className={classes.toolbar}>
-              <IconButton onClick={this.handleDrawerClose}>
-                {theme.direction === 'rtl' ? <ChevronRightIcon /> : <ChevronLeftIcon />}
-              </IconButton>
+              <IconButton onClick={this.handleDrawerClose}> <ChevronLeftIcon /></IconButton>
             </div>
             <Divider />
             <Menu />
@@ -165,6 +157,5 @@ class ResponsiveDrawer extends React.Component {
     )
   }
 }
-
 
 export default withStyles(styles, { withTheme: true })(ResponsiveDrawer);

@@ -63,8 +63,7 @@
       ".next"
     ],
     "watch": [
-      "server/**/*",
-      "data/**/*"
+      "server/**/*"
     ],
     "ext": "js json"
   }

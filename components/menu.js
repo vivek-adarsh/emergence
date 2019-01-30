@@ -1,13 +1,15 @@
 import React from 'react'
 import Link from 'next/link'
 
-import {List, ListItem, ListItemIcon, ListSubheader, ListItemText} from '@material-ui/core'
-import DashboardIcon from '@material-ui/icons/Dashboard'
-import FeedIcon from '@material-ui/icons/QuestionAnswer'
-import MapIcon from '@material-ui/icons/Map'
-import HelpIcon from '@material-ui/icons/Help'
-import ProfileIcon from '@material-ui/icons/Person'
-import ComposeIcon from '@material-ui/icons/Edit'
+import {List, ListItem, ListItemIcon, ListItemText} from '@material-ui/core'
+import {
+  Dashboard as DashboardIcon,
+  QuestionAnswer as FeedIcon,
+  Map as MapIcon,
+  Help as HelpIcon,
+  Person as ProfileIcon,
+  Edit as ComposeIcon
+} from '@material-ui/icons'
 import Divider from '@material-ui/core/Divider/Divider'
 
 export default () => (

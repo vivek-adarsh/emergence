@@ -86,8 +86,6 @@ class Map extends React.Component {
   }
 
   componentWillMount() {
-
-
   }
 
   render() {

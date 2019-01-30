@@ -1,11 +1,8 @@
 import React from 'react';
 import Link from 'next/link'
-import { withStyles } from '@material-ui/core/styles';
-import Card from '@material-ui/core/Card'
-import CardContent from '@material-ui/core/CardContent'
-import CardActionArea from '@material-ui/core/CardActionArea'
-import Button from '@material-ui/core/Button'
-import Typography from '@material-ui/core/Typography'
+
+import {Card, CardContent, CardActionArea, Typography} from '@material-ui/core'
+import { withStyles } from '@material-ui/core/styles'
 
 const styles = {
   card: {
@@ -44,7 +41,7 @@ function SimpleCard(props) {
         </CardActionArea>
       </Link>
     </Card>
-  );
+  )
 }
 
 export default withStyles(styles)(SimpleCard);

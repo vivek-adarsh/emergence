@@ -1,14 +1,14 @@
 import React from 'react'
+
+import {
+  Map as MapIcon,
+  QuestionAnswer as FeedIcon,
+} from '@material-ui/icons'
+
 import Layout from '../components/layout'
 import Card from '../components/card'
 
-import FeedIcon from '@material-ui/icons/QuestionAnswer'
-import MapIcon from '@material-ui/icons/Map'
-import HelpIcon from '@material-ui/icons/Help'
-import ProfileIcon from '@material-ui/icons/Person'
-
 class IndexPage extends React.Component {
-
 
   render() {
     return (

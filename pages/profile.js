@@ -1,22 +1,17 @@
 import React from 'react'
-import Layout from '../components/layout'
-import Grid from '@material-ui/core/Grid'
-import Input from '@material-ui/core/Input'
-import InputLabel from '@material-ui/core/InputLabel'
-import TextField from '@material-ui/core/TextField/TextField'
-import FormControl from '@material-ui/core/FormControl'
-import NativeSelect from '@material-ui/core/NativeSelect'
+
+import {Grid, Input, InputLabel, TextField, FormControl, NativeSelect} from '@material-ui/core'
 import { withStyles } from '@material-ui/core/styles'
+
+import Layout from '../components/layout'
 import { post } from '../util/io'
 
 const styles = theme => ({
-
   textField: {
     marginLeft: theme.spacing.unit,
     marginRight: theme.spacing.unit,
     minWidth: "90%"
   }
-
 })
 
 class ProfilePage extends React.Component {
@@ -39,7 +34,6 @@ class ProfilePage extends React.Component {
 
   handleChange = name => event => {
     this.setState( {[name]: event.target.value})
-    //post("people", this.state)
   }
 
   render() {
@@ -193,7 +187,5 @@ class ProfilePage extends React.Component {
     )
   }
 }
-
-
 
 export default withStyles(styles)(ProfilePage)

@@ -4,12 +4,11 @@ const mongoose = require('mongoose')
 const mongooseCrudify = require('mongoose-crudify');
 const Models = require('./models')
 
-
 //Preload API Documentation
 let doc = "<h1>Welcome to the Emergence API</h1>"
 mongoose.connection.db.listCollections().toArray(function(err, col) {
   if (err) {
-    console.log(err);
+    console.log(err)
   } else {
     col.map(c => {
       doc += "<a href='/api/"+c.name+"'>"+c.name +"</a>" + "<br>"
@@ -17,15 +16,13 @@ mongoose.connection.db.listCollections().toArray(function(err, col) {
   }
 })
 
-
-
 router.get( '/', (req, res) => {
   res.send(doc)
 })
 
- router.use( '/posts', mongooseCrudify({
+router.use( '/posts', mongooseCrudify({
     Model: Models.Post,
-    //selectFields: '-__v', // Hide '__v' property
+    selectFields: '-__v', // Hide '__v' property
   })
 )
 

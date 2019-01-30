@@ -1,5 +1,4 @@
-import fetch from 'unfetch'
-
+import fetch from 'isomorphic-unfetch'
 
 function postJson(path,data){
   console.log("POST to '/api/"+path+"':\n" + JSON.stringify(data))
@@ -16,19 +15,14 @@ function postJson(path,data){
 }
 
 
- function getJson(path){
+async function getJson(path){
   console.log("GET from '/api/"+path+"':\n" )
 
-  fetch("/api/"+path, {
-    mode: 'cors',
-    method: 'GET',
-    cache: "no-cache",
-    headers: {
-      "Content-Type": "application/json"
-    },
-  }).then( (response) => console.log(response) )
+  const res = await fetch('http://localhost:3000/api/'+path)
+  const data = await res.json()
+
+  console.log(`Fetched ${data.length} entries`)
+  return data
 }
 
-
 export {getJson, postJson}
-
