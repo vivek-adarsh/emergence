@@ -47,19 +47,19 @@ class Map extends React.Component {
         console.log(lyr)
 
         let layer
-        if (lyr.type == "heatmap") {
+        if (lyr.type === "heatmap") {
           layer = new HM({
             radius: lyr.radius,
             maxOpacity: .8,
             scaleRadius: true, // scales the radius based on map zoom
             useLocalExtrema: false,  // if false uses the global maximum for colorization
-            latField: 'lat',    // name of latitude field - default "lat"
-            lngField: 'lng',    // name of longitude field - default "lng"
-            valueField: 'count' // name of value field - default "value"
+            latField: lyr.latField,
+            lngField: lyr.lngField,
+            valueField: lyr.valueField
           })
           layer.setData(lyr)
         }
-        map.addLayer(layer)
+        //map.addLayer(layer)
         layerControl.addOverlay(layer, lyr.name)
 
       })

@@ -30,3 +30,14 @@ Visit [localhost:3000](http://localhost:3000) to see the running application.
 # Test Mapping
 To generate some sample layers, start MongoDb then run 
 `node plugins/testMapData.js`
+
+--
+#Directory Structure
+* *component/* reusable JSX page elements
+* *data/* contains MongoDB Data
+* *logs/* contains error logs (including MongoDB logs)
+* *pages/* contains web pages. Adding a file here automatically adds a route.
+* *plugins/* independant scripts to load data to MongoDB
+* *server/* Runs API server that connects to MongoDB
+* *static/* contains non minified files. These files are automatically served on web server
+* *util/* additional non-component JS scripts
