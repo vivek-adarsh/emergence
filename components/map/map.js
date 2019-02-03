@@ -6,8 +6,12 @@ import React from 'react'
 class Map extends React.Component {
 
   mapStyle = {
-    height: "90vh",
-    margin: "-24px",
+    height: "88vh",
+    padding: 0,
+    marginTop: "20px",
+    marginBottom: "-24px",
+    marginLeft: "-24px",
+    marginRight: "-24px",
     border: "1px solid #000000"
   }
 
