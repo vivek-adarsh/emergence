@@ -10,29 +10,28 @@ Then **navigate into this project folder**. There, run `npm install` to install 
 The development build is ideal for testing changes to the app. The server tracks file changes and forces a refresh in the browser when a change has been detected.
 
 To run the development mode run:
-`npm run startDB`
-`npm run dev`
+<br/>`npm run startDB`
+<br/>`npm run dev`
+<br/>
 Visit [localhost:3000](http://localhost:3000) to see the running application.
 
 
 # Production Build
 The production build, compacts the files and bundles them for speed. Use this mode for deploying the application. 
 
-To run the production database and server run
-`npm run startDB`
-`npm run build`
-`npm run start`
+To run the production database and server run:
+<br/>`npm run startDB`
+<br/>`npm run build`
+<br/>`npm run start`
 
 You will first need to start the DB (the *startDB* script is for convenience only, feel free to start a MongoDB database in any way that work for you). Next run the *build* script once, and spin up as many instances as needed using the *start* command
 
 Visit [localhost:3000](http://localhost:3000) to see the running application.
 
-
-
 ---
 # Test Mapping
 To generate some sample layers, start MongoDb then run 
-`node plugins/testMapData.js`
+<br/> `node plugins/testMapData.js`
 
 --
 #Directory Structure
