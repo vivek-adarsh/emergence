@@ -1,4 +1,3 @@
-
 module.exports = {
   siteMetadata: {
     title: 'EmerGence',
@@ -35,6 +34,7 @@ module.exports = {
       }
     },
     'gatsby-plugin-catch-links',
-    `gatsby-plugin-offline`
+    `gatsby-plugin-offline-modified`,
+    `gatsby-plugin-mongo-crud`
   ],
 }

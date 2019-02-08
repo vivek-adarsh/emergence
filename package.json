@@ -1,17 +1,14 @@
 {
-  "name": "EmerGence",
+  "name": "emergence",
   "version": "0.1.0",
   "description": "A Disaster Relief APP",
   "main": "index.js",
   "scripts": {
-    "build": "gatsby build",
-    "develop": "gatsby develop",
     "dev": "gatsby develop",
+    "build": "gatsby build",
     "start": "gatsby serve",
-    "clean": "rm -rf public && rm -rf .cache",
-    "startDB": "mongod --fork --dbpath ./data --logpath ./logs/mongodb.log",
-    "startREST": "python ./db_server/run.py",
-    "stopDB": "mongod --shutdown --dbpath ./data &"
+    "startDB": "node plugins/gatsby-plugin-mongo-crud/startMongoDB.js",
+    "clean": "rm -rf public && rm -rf .cache"
   },
   "repository": {
     "type": "git",
@@ -46,7 +43,8 @@
     "gatsby-image": "^2.x",
     "gatsby-plugin-catch-links": "^2.x",
     "gatsby-plugin-manifest": "^2.x",
-    "gatsby-plugin-offline": "file:./gatsby-plugin-offline-modified",
+    "gatsby-plugin-offline": "file:./plugins/gatsby-plugin-offline-modified",
+    "gatsby-plugin-mongo-crud": "file:./plugins/gatsby-plugin-mongo-crud",
     "gatsby-plugin-react-helmet": "^3.x",
     "gatsby-source-filesystem": "^2.x",
     "gatsby-source-mongodb": "^2.x",
