@@ -1,8 +1,8 @@
 import React from 'react'
+
 import Layout from '../components/layout'
 
 class HelpPage extends React.Component {
-
 
   render() {
     return (

@@ -55,6 +55,8 @@
     "react-dom": "^16.x",
     "react-helmet": "^5.x",
     "react-jss": "^8.x",
-    "react-webcam": "^1.x"
+    "react-webcam": "^1.x",
+    "isomorphic-unfetch": "^3.x",
+    "rc-slider": "^8.x"
   }
 }

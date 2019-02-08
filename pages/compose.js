@@ -1,24 +1,21 @@
 import React from 'react'
-import Router from 'next/router'
+import { navigate } from 'gatsby'
+
+import {TextField, Button, IconButton, Grid} from '@material-ui/core'
+import {
+  Send as PostIcon,
+  GpsFixed as GpsIcon,
+  GpsNotFixed as GpsNoIcon,
+  PhotoCamera as CameraIcon,
+  Image as FileIcon,
+} from '@material-ui/icons'
+import { withStyles } from '@material-ui/core/styles'
 
 import Layout from '../components/layout'
-import { withStyles } from '@material-ui/core/styles';
-import TextField from '@material-ui/core/TextField'
-import Button from '@material-ui/core/Button'
-
-import PostIcon from '@material-ui/icons/Send'
-import GpsIcon from '@material-ui/icons/GpsFixed'
-import GpsNoIcon from '@material-ui/icons/GpsNotFixed'
-import CameraIcon from '@material-ui/icons/PhotoCamera'
-import FileIcon from '@material-ui/icons/Image'
-import IconButton from '@material-ui/core/IconButton'
-import Grid from '@material-ui/core/Grid'
+import Camera from "../components/camera"
 import {geoLocation} from "../util/deviceData"
 import {postJson} from "../util/io"
 
-import Camera from "../components/camera"
-
-let fileReader
 const styles = theme => ({
   textField: {
     marginLeft: theme.spacing.unit,
@@ -34,8 +31,9 @@ const styles = theme => ({
   rightIcon: {
     marginLeft: theme.spacing.unit,
   },
-
 })
+
+let fileReader
 
 class ComposePage extends React.Component {
 
@@ -86,7 +84,7 @@ class ComposePage extends React.Component {
     //Make a network call somewhere
     event.preventDefault()
     postJson("posts", this.state)
-    Router.push('/feed')
+    navigate("feed")
   }
 
   //Do this when we capture an image from a device camera

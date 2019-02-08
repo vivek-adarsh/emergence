@@ -12,7 +12,7 @@ class Camera extends React.Component {
   }
 
   constructor() {
-    super();
+    super()
 
     //Set Defaults
     this.state = {
@@ -21,13 +21,9 @@ class Camera extends React.Component {
 
     this.setRef = this.setRef.bind(this)
     this.capture = this.capture.bind(this)
-
-
   }
 
-
   render() {
-
     return (
       <>
         <Webcam
