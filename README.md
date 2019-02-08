@@ -33,7 +33,7 @@ Visit [localhost:3000](http://localhost:3000) to see the running application.
 To generate some sample layers, start MongoDb then run 
 <br/> `node plugins/testMapData.js`
 
---
+--  
 #Directory Structure
 * *component/* reusable JSX page elements
 * *data/* contains MongoDB Data

@@ -1,5 +1,5 @@
 import React from 'react'
-
+import '../../static/leaflet.css'
 // Leaflet does not allow server side rendering
 // This component loads the map on page load dynamically
 

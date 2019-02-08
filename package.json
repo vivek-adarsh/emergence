@@ -38,7 +38,7 @@
   "dependencies": {
     "@material-ui/core": "^3.x",
     "@material-ui/icons": "^3.x",
-    "@zeit/next-css": "^1.x",
+    "@zeit/next-css": "^1.0.1",
     "acorn": "^6.x",
     "body-parser": "^1.x",
     "classnames": "^2.x",
@@ -50,7 +50,9 @@
     "mongoose": "^5.4.9",
     "mongoose-crudify": "^0.2.x",
     "next": "^7.x",
+    "next-images": "^1.0.4",
     "prop-types": "latest",
+    "rc-slider": "^8.6.5",
     "react": "^16.x",
     "react-dom": "^16.x",
     "react-jss": "^8.x",
