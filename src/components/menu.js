@@ -24,7 +24,7 @@ export default () => (
         </ListItem>
       </Link>
 
-      <Link to={"map"}>
+      <Link to={"/map"}>
         <ListItem button >
           <ListItemIcon>
             <MapIcon />
@@ -33,7 +33,7 @@ export default () => (
         </ListItem>
       </Link>
 
-      <Link to={"feed"}>
+      <Link to={"/feed"}>
         <ListItem button >
           <ListItemIcon>
             <FeedIcon />
@@ -42,7 +42,7 @@ export default () => (
         </ListItem>
       </Link>
 
-      <Link to={"compose"}>
+      <Link to={"/compose"}>
         <ListItem button >
           <ListItemIcon>
             <ComposeIcon />
@@ -51,7 +51,7 @@ export default () => (
         </ListItem>
       </Link>
 
-      <Link to={"help"}>
+      <Link to={"/help"}>
         <ListItem button >
           <ListItemIcon>
             <HelpIcon />
@@ -63,7 +63,7 @@ export default () => (
 
     <Divider />
     <List>
-      <Link to={"profile"}>
+      <Link to={"/profile"}>
         <ListItem button >
           <ListItemIcon>
             <ProfileIcon />

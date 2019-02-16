@@ -42,7 +42,8 @@ To generate some sample layers, start MongoDb then run
 <br/> `node plugins/testMapData.js`
 
 ---  
-#Directory Structure
+# Directory Structure  
+
  ![grey](https://placehold.it/15/d1cfce/?text=+) **.cache/** ephemeral folder that caches code for fast development <br/>
  ![orange](https://placehold.it/15/de891b/?text=+) **db_data/** contains MongoDB Data<br/>
 ![orange](https://placehold.it/15/de891b/?text=+) **db_logs/** contains MongoDB error logs <br/>

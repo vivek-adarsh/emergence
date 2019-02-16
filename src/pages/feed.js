@@ -41,7 +41,7 @@ class Feed extends React.Component {
           )
         }
 
-        <Link to={"compose"}><Fab color="secondary"   className={classes.fab}><WriteIcon/></Fab></Link>
+        <Link to={"/compose"}><Fab color="secondary"   className={classes.fab}><WriteIcon/></Fab></Link>
       </Layout>
     )
   }

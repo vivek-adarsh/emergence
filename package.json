@@ -39,6 +39,7 @@
     "@material-ui/icons": "^3.x",
     "classnames": "^2.x",
     "core-js": "^2.6.4",
+    "prop-types": "latest",
     "gatsby": "^2.x",
     "gatsby-image": "^2.x",
     "gatsby-plugin-catch-links": "^2.x",
