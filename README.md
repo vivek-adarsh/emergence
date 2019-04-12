@@ -43,3 +43,4 @@ To generate some sample layers, start MongoDb then run
 * *server/* Runs API server that connects to MongoDB
 * *static/* contains non minified files. These files are automatically served on web server
 * *util/* additional non-component JS scripts
+* *tes_data/* contains test data for LTE congestion
